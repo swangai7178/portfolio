@@ -93,7 +93,7 @@ export default function PortfolioPage() {
 
           {/* --- Featured Projects Section --- */}
           <section className="mb-10">
-            <h2 className="text-3xl font-semibold mb-6 text-center text-cyan-400">// Featured_Projects $</h2>
+            <h2 className="text-3xl font-semibold mb-6 text-center text-cyan-400">Featured_Projects $</h2>
             {/* Grid layout for project cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"> {/* Adjust columns as needed */}
               {projects.map((project) => (
@@ -141,7 +141,7 @@ export default function PortfolioPage() {
 
           {/* Published Apps Section (Optional - you might integrate these into Featured Projects) */}
           <section className="mb-8 p-4 bg-gray-800 bg-opacity-70 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-3 text-cyan-400">// Published_Apps $</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-cyan-400"> Published_Apps</h2>
             <p className="text-gray-300 mb-4">Direct links to applications published on app stores (if applicable):</p>
             <div className="flex justify-center items-center space-x-4">
                 {/* Replace # with actual links to Google Play Developer page or specific apps */}
