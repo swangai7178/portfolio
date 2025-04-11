@@ -86,7 +86,6 @@ export default function ResumePage() {
                         <h2 className="text-2xl font-semibold mb-3 text-cyan-400">// Education $</h2>
                         <p className="text-gray-300"><strong className="text-yellow-400">Kirinyaga University:</strong> Bachelor's Degree in Computer Science (2017-2021)</p>
                         <ul className="list-disc list-inside text-gray-300 pl-4">
-                        
                             <li>Specialized in Software Development and Data Analytics.</li>
                             <li>Completed a capstone project on "AI-Powered Chatbots for Customer Support."</li>
                             <li>Active member of the university's programming club and hackathon participant.</li>
