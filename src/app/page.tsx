@@ -29,7 +29,7 @@ export default function Home() {
       {/* 6. Main Content Wrapper: Holds the actual content */}
       {/* Changed justify-center to justify-start (or remove) and h-full to h-auto if needed */}
       <main className="flex flex-col items-center justify-start h-auto text-white text-center px-4 container mx-auto max-w-4xl"> {/* Centering content horizontally, starts from top */}
-        <h1 className="text-5xl font-bold">Hi, I'm Samuel Wangai.</h1>
+        <h1 className="text-5xl font-bold">Hi, Im Samuel Wangai.</h1>
         <p className="mt-4 text-xl text-gray-300">
         A passionate developer with expertise in crafting modern web applications.
         </p>
@@ -61,12 +61,12 @@ export default function Home() {
         </div>
         </div>
         <p className="mt-8 text-gray-400">
-        Let's build something amazing together!
+        Let us build something amazing together!
         </p>
 
         {/* Projects Section */}
         <section className="mt-12 w-full">
-        <h2 className="text-3xl font-bold mb-6">Projects I've Worked On</h2>
+        <h2 className="text-3xl font-bold mb-6">Projects I have Worked On</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="p-4 bg-gray-800 rounded-lg shadow-md">
           <h3 className="text-lg font-semibold">E-Commerce Platform</h3>

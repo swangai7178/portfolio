@@ -11,7 +11,7 @@
 
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Grid, OrbitControls } from '@react-three/drei'; // Import Grid
+import { Grid } from '@react-three/drei'; // Import Grid
 import * as THREE from 'three';
 export default function DeveloperVibeBackground() {
     return (

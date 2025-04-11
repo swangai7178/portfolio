@@ -15,15 +15,15 @@ export default function Navbar() {
         </div>
         <div className="space-x-4">
           <Link href="/" className="text-gray-300 hover:text-white transition-colors">
-            // Home
+           Home
           </Link>
           {/* Add Resume/CV Link */}
           <Link href="/resume" className="text-gray-300 hover:text-white transition-colors">
-            // Resume
+             Resume
           </Link>
           {/* Add Portfolio Link */}
           <Link href="/portfolio" className="text-gray-300 hover:text-white transition-colors">
-            // Portfolio
+             Portfolio
           </Link>
           {/* Keep or modify About/Contact as needed */}
          {/* <Link href="/about" className="text-gray-300 hover:text-white transition-colors">

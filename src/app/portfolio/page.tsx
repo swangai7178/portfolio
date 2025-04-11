@@ -23,7 +23,7 @@ const projects = [
     id: 2,
     title: "Task Management App (Flutter)",
     description: "Cross-platform mobile application developed using Flutter for efficient task tracking and team collaboration, integrated with Firebase.",
-    tech: ["Flutter", "Dart", "Firebase Auth", "Firestore", "Provider"],
+    tech: ["Flutter", "Dart", "Firebase Auth", "Firestore", "Bloc"],
     liveUrl: null, // Replace with App Store/Play Store link or null
     repoUrl: "#", // Replace with actual GitHub Repo URL or null
   },
@@ -79,11 +79,11 @@ export default function PortfolioPage() {
 
         {/* 5. Main Content Wrapper: Centering, padding, max-width */}
         <main className="container mx-auto max-w-5xl text-white px-4 md:px-8 lg:px-12"> {/* Increased max-width slightly for portfolio */}
-          <h1 className="text-4xl font-bold mb-8 text-center">// Project_Portfolio $</h1>
+          <h1 className="text-4xl font-bold mb-8 text-center"> Project_Portfolio $</h1>
 
           {/* GitHub Link Section */}
           <section className="mb-10 p-4 bg-gray-800 bg-opacity-70 rounded-lg text-center shadow-md">
-            <h2 className="text-2xl font-semibold mb-3 text-cyan-400">// Source_Code $</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-cyan-400"> Source_Code $</h2>
             <p className="text-gray-300 mb-4">Explore my repositories and contributions on GitHub:</p>
             <Link href="https://github.com/swangai7178" target="_blank" rel="noopener noreferrer"
                   className="inline-block bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-4 rounded transition-colors duration-300 shadow hover:shadow-lg">
