@@ -1,103 +1,113 @@
-import Image from "next/image";
+/*
+ *   Copyright (c) 2025 
+ *   All rights reserved.
+ */
+// src/app/page.js (or .tsx) - Modify Existing Home Page
+import Navbar from '@/app/component/navbar';
+// Rename StaticStarsBackground to DeveloperVibeBackground if you changed the file/component name
+import DeveloperVibeBackground from '@/app/component/StaticStarsBackground';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    // 1. Overall Page Container: Sets relative context and MINIMUM height. Allows growing.
+    <div className="relative w-full min-h-screen bg-gray-900"> {/* Changed h-screen/overflow-hidden to min-h-screen, added fallback bg */}
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* 2. Background Layer: Assumed absolute, behind everything else */}
+      {/* Ensure DeveloperVibeBackground uses position: absolute, inset-0, and maybe z-0 */}
+      <DeveloperVibeBackground />
+
+      {/* 3. Gradient Overlay Layer: Absolute, above background, below content */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-gray-800 opacity-90 z-[1]"></div> {/* Ensure z-index is between background and content */}
+
+      {/* 4. Navbar Layer: Positioned as needed, highest z-index */}
+      {/* Ensure Navbar has a high z-index (e.g., z-30 or z-50) to be above the scrollable content */}
+      <Navbar />
+
+      {/* 5. Scrollable Content Area: Absolutely positioned OVER background/gradient, handles scrolling */}
+      <div className="absolute inset-0 z-10 overflow-y-auto pt-16 md:pt-20 pb-12"> {/* Adjust pt-* for Navbar, add pb-* for bottom space */}
+
+      {/* 6. Main Content Wrapper: Holds the actual content */}
+      {/* Changed justify-center to justify-start (or remove) and h-full to h-auto if needed */}
+      <main className="flex flex-col items-center justify-start h-auto text-white text-center px-4 container mx-auto max-w-4xl"> {/* Centering content horizontally, starts from top */}
+        <h1 className="text-5xl font-bold">Hi, I'm Samuel Wangai.</h1>
+        <p className="mt-4 text-xl text-gray-300">
+        A passionate developer with expertise in crafting modern web applications.
+        </p>
+        {/* Skill Grid - this might cause overflow on small screens */}
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full"> {/* Adjusted grid cols for responsiveness */}
+        <div className="p-4 bg-gray-800 rounded-lg shadow-md">
+          <h2 className="text-lg font-semibold">Frontend Development</h2>
+          <p className="text-sm text-gray-400">Flutter, React, TypeScript, Tailwind CSS</p>
         </div>
+        <div className="p-4 bg-gray-800 rounded-lg shadow-md">
+          <h2 className="text-lg font-semibold">Backend Development</h2>
+          <p className="text-sm text-gray-400">Springboot, ruby on rails, rust, Node.js, MongoDB, Firebase,</p>
+        </div>
+        <div className="p-4 bg-gray-800 rounded-lg shadow-md">
+          <h2 className="text-lg font-semibold">DevOps</h2>
+          <p className="text-sm text-gray-400">Docker, CI/CD, Azure</p>
+        </div>
+        <div className="p-4 bg-gray-800 rounded-lg shadow-md">
+          <h2 className="text-lg font-semibold">UI/UX Design</h2>
+          <p className="text-sm text-gray-400">Figma, Adobe XD</p>
+        </div>
+        <div className="p-4 bg-gray-800 rounded-lg shadow-md">
+          <h2 className="text-lg font-semibold">Problem Solving</h2>
+          <p className="text-sm text-gray-400">Data Structures, Algorithms</p>
+        </div>
+        <div className="p-4 bg-gray-800 rounded-lg shadow-md">
+          <h2 className="text-lg font-semibold">Team Collaboration</h2>
+          <p className="text-sm text-gray-400">Agile, Scrum, Git</p>
+        </div>
+        </div>
+        <p className="mt-8 text-gray-400">
+        Let's build something amazing together!
+        </p>
+
+        {/* Projects Section */}
+        <section className="mt-12 w-full">
+        <h2 className="text-3xl font-bold mb-6">Projects I've Worked On</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="p-4 bg-gray-800 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold">E-Commerce Platform</h3>
+          <p className="text-sm text-gray-400">
+            Built a scalable e-commerce platform using Flutter for the mobile, Firebase for analytics, Ruby on rails. Integrated payment gateways and real-time order tracking.
+          </p>
+          </div>
+          <div className="p-4 bg-gray-800 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold">POS System</h3>
+          <p className="text-sm text-gray-400">
+            Integrated a POS system with <a href="https://quadvendor.net/" className="text-blue-400 underline" target="_blank" rel="noopener noreferrer">QuadVendor</a> API to manage inventory, sales, and customer data efficiently.
+          </p>
+          </div>
+          <div className="p-4 bg-gray-800 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold">Game Development</h3>
+          <p className="text-sm text-gray-400">
+            Designed and developed engaging multiplayer games using Flutter and Firebase, incorporating real-time updates and leaderboards.
+          </p>
+          </div>
+          <div className="p-4 bg-gray-800 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold">Task Management Tool</h3>
+          <p className="text-sm text-gray-400">
+            Developed a task management tool using React and Redux, enabling users to organize and prioritize tasks efficiently.
+          </p>
+          </div>
+          <div className="p-4 bg-gray-800 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold">Law Firm Website</h3>
+          <p className="text-sm text-gray-400">
+            Created a professional law firm website using Next.js, ensuring fast performance, SEO optimization, and a responsive design to attract and engage clients.
+          </p>
+          </div>
+          <div className="p-4 bg-gray-800 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold">IoT Tracking Software</h3>
+          <p className="text-sm text-gray-400">
+            Developed an IoT tracking software using Flutter, enabling users to monitor and track devices in real-time with seamless integration of GPS and analytics.
+          </p>
+          </div>
+        </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }
