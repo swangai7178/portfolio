@@ -145,10 +145,10 @@ export default function PortfolioPage() {
             <p className="text-gray-300 mb-4">Direct links to applications published on app stores (if applicable):</p>
             <div className="flex justify-center items-center space-x-4">
                 {/* Replace # with actual links to Google Play Developer page or specific apps */}
-                <Link href="#" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 transition-colors duration-300 font-medium hover:underline">Android Apps</Link>
+                <Link href="https://play.google.com/store/apps/developer?id=Giga+Cypher+Systems+Ltd&hl=en" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 transition-colors duration-300 font-medium hover:underline">Android Apps</Link>
                 <span className="text-gray-500">|</span>
                 {/* Replace # with actual links to App Store page or specific apps */}
-                <Link href="#" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors duration-300 font-medium hover:underline">iOS Apps</Link>
+                <Link href="https://apps.apple.com/ke/developer/dan-gicho/id1560544094" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors duration-300 font-medium hover:underline">iOS Apps</Link>
             </div>
           </section>
 
