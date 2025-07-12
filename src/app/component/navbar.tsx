@@ -11,7 +11,7 @@ export default function Navbar() {
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-white text-xl font-bold">
           {/* Use your name or a cool alias */}
-          <Link href="/">SamuelW</Link> {/* Or your site title */}
+          <Link href="/">Samuel Wangai Mwangi</Link> {/* Or your site title */}
         </div>
         <div className="space-x-4">
           <Link href="/" className="text-gray-300 hover:text-white transition-colors">
