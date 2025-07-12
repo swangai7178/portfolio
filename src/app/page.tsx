@@ -6,7 +6,6 @@
 
 import Navbar from '@/app/component/navbar';
 import DeveloperVibeBackground from '@/app/component/StaticStarsBackground';
-import React, { useState } from 'react'; // Keep useState, though the popup is currently not triggered from here
 import Link from 'next/link'; // Keep Link for internal navigation
 
 export default function Home() {
