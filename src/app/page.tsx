@@ -30,8 +30,8 @@ export default function Home() {
             <a href="#projects" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition duration-300">
               Explore My Work
             </a>
-            <a href="#contact" className="px-6 py-3 border border-gray-600 text-gray-300 hover:text-white hover:border-white font-semibold rounded-lg shadow-md transition duration-300">
-              Let's Connect
+            <a href="contact" className="px-6 py-3 border border-gray-600 text-gray-300 hover:text-white hover:border-white font-semibold rounded-lg shadow-md transition duration-300">
+              Let us Connect
             </a>
           </div>
 
@@ -69,7 +69,7 @@ export default function Home() {
 
           {/* Projects Section */}
           <section id="projects" className="mt-16 w-full">
-            <h2 className="text-3xl font-bold mb-8">Projects I've Built</h2>
+            <h2 className="text-3xl font-bold mb-8">Projects I havve Built</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div className="p-6 bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
                 <h3 className="text-xl font-semibold mb-2">E-Commerce Platform</h3>
