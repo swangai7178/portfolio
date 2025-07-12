@@ -208,7 +208,7 @@ export default function PortfolioPage() {
                 </div>
             </div>
             <p className="text-sm text-gray-500 mt-6">
-                Note: Some apps may have region restrictions. If a link doesn't work, search for the app name directly on your region's store.
+                Note: Some apps may have region restrictions. If a link does not work, search for the app name directly on your region store.
             </p>
           </section>
 
