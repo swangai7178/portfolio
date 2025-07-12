@@ -10,9 +10,6 @@ import React, { useState } from 'react'; // Keep useState, though the popup is c
 import Link from 'next/link'; // Keep Link for internal navigation
 
 export default function Home() {
-  // Keep the state for the popup, in case you want to trigger it from somewhere else later
-  const [showContactPopup, setShowContactPopup] = useState(false); 
-
   return (
     <div className="relative w-full min-h-screen bg-gray-900">
       {/* Background Layer */}
