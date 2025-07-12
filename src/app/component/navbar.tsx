@@ -29,9 +29,8 @@ export default function Navbar() {
           {/* <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
             About
           </Link>
-          <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
-            Contact
-          </Link> */}
+          */}
+      
         </div>
       </div>
     </nav>
