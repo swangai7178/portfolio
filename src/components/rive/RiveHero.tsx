@@ -18,14 +18,11 @@ export const RiveHero = () => {
     }),
   });
 
-  // Helper with Safety Checks to prevent the "find of undefined" error
   const getStateMachineInput = (inputName: string) => {
     if (!rive || !rive.stateMachineNames.length) return null;
     
     const smName = rive.stateMachineNames[0];
     const inputs = rive.stateMachineInputs(smName);
-    
-    // Safety check: ensure inputs is an array before calling .find
     if (!inputs) return null;
     return inputs.find(i => i.name === inputName);
   };
