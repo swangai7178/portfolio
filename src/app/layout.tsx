@@ -1,74 +1,81 @@
-
-import type { Metadata } from "next";
+/*
+ * Copyright (c) 2026 
+ * All rights reserved.
+ */
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+// Define JSON-LD outside to ensure constant string value across SSR and Client
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Samuel Wangai",
+  "jobTitle": "Fullstack Software Engineer",
+  "url": "https://portfolio-two-iota-25.vercel.app",
+  "knowsAbout": ["Flutter", "Ruby on Rails", "System Architecture", "Next.js", "M-Pesa API"]
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0a0a0b",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "Samuel Wangai | Portfolio — Flutter, Backend, and Fullstack Developer",
-  description: "Explore Samuel Wangai's portfolio showcasing projects in Flutter, Ruby on Rails, Java Spring Boot, and modern web development.",
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
+  title: "Samuel Wangai | Fullstack Engineer & System Architect",
+  description: "Specializing in high-performance Flutter apps and Ruby on Rails backends. Building scalable logistics and real estate solutions in Nairobi.",
+  metadataBase: new URL("https://portfolio-two-iota-25.vercel.app"),
   keywords: [
-    "Samuel Wangai",
-    "Flutter Developer",
-    "Backend Developer",
-    "Fullstack Developer",
-    "Ruby on Rails",
-    "Spring Boot",
-    "Next.js Portfolio",
-    "Kenya Developer",
-    "Software Engineer Portfolio",
+    "Samuel Wangai", "Fullstack Engineer Nairobi", "Flutter Expert Kenya", 
+    "Ruby on Rails Developer", "System Architect", "PataKeja", 
+    "Courier Plus Logistics Software", "M-Pesa Integration Expert"
   ],
-  authors: [{ name: "Samuel Wangai", url: "https://yourdomain.com" }],
   openGraph: {
-    title: "Samuel Wangai | Portfolio",
-    description: "Explore my projects in Flutter, Rails, Spring Boot, and modern fullstack web development.",
-    url: "https://yourdomain.com",
-    siteName: "Samuel Portfolio",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Samuel Wangai Portfolio Preview",
-      },
-    ],
+    title: "Samuel Wangai | Fullstack Engineer & Architect",
+    description: "Building the future of logistics and real estate with Flutter & Rails.",
+    url: "https://portfolio-two-iota-25.vercel.app",
+    siteName: "Samuel Wangai Portfolio",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Samuel Wangai Portfolio Preview" }],
     locale: "en_US",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Samuel Wangai | Portfolio",
-    description: "Flutter, Rails, Spring Boot — My fullstack development projects.",
-    images: ["/og-image.png"],
-    creator: "@yourTwitterHandle",
-  },
-  metadataBase: new URL("https://yourdomain.com"),
+  robots: { index: true, follow: true },
 };
+
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" dir="ltr">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* We keep the head clean to avoid extension interference with the script */}
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0a0a0b] text-white min-h-screen w-full relative flex flex-col`}
       >
+        {/* Main Content */}
         {children}
+
+        {/* FIX: Structured Data is injected at the bottom of the body.
+          Search engines (Google/Bing) parse JSON-LD from the body perfectly.
+          This prevents extensions from 'hijacking' the script tag during head hydration.
+        */}
+        <script
+          id="structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+        />
       </body>
     </html>
   );
