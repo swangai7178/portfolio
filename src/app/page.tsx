@@ -23,12 +23,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-100px,rgba(37,99,235,0.05),transparent)]" />
         <div className="noise-overlay absolute inset-0 opacity-[0.02]" />
       </div>
-
       <Hero />
-      
       <Projects />
-
-      
     </main>
   );
 }
