@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2026 Samuel Wangai
- * Systems Architect & Fullstack Engineer // Nairobi_Node
- * Module: Root_Production_Deployment
- */
-
 'use client';
 
 import { Navbar } from '@/components/layout/Navbar';
