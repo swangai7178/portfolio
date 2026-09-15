@@ -64,19 +64,19 @@ function SWLogo({ large = false }: { large?: boolean }) {
 const projects = [
   {
     number: "01",
-    name: "Pinned Flow",
+    name: "Logistics & Delivery Platform",
     role: "Systems Engineer",
     description:
-      "Delivery and logistics ecosystem spanning runner applications, sender workflows, locker hardware, real-time location services, notifications and backend infrastructure.",
-    stack: "Flutter · Rails · Firebase · Maps · Hardware",
+      "Production logistics platform spanning mobile workflows, delivery operations, real-time location services, notifications, payments and backend services.",
+    stack: "Flutter · Rails · Firebase · Maps · APIs",
     status: "ACTIVE",
   },
   {
     number: "02",
-    name: "QuadVendor Ecosystem",
+    name: "Commerce & POS Ecosystem",
     role: "Lead Fullstack Architect",
     description:
-      "Unified POS and e-commerce platform with mobile and web applications, real-time inventory, sales orchestration and vendor operations.",
+      "Unified POS and e-commerce platform connecting mobile and web applications with inventory, sales, orders and vendor operations.",
     stack: "Flutter · Next.js · TypeScript · Firebase · REST",
     status: "PRODUCTION",
   },
@@ -85,54 +85,126 @@ const projects = [
     name: "SmartPly Mobile",
     role: "Fullstack Developer",
     description:
-      "Scalable commerce experience connecting Flutter applications with a Ruby on Rails backend, PostgreSQL and Firebase services.",
+      "Scalable commerce application backed by a Ruby on Rails API, PostgreSQL and Firebase services.",
     stack: "Flutter · Rails · PostgreSQL · Firebase",
     status: "ACTIVE",
   },
   {
     number: "04",
-    name: "Sahibu360 Platform",
+    name: "Multi-Tenant Commerce Platform",
     role: "Systems Engineer",
     description:
-      "Dual-node commerce platform connecting web and mobile experiences with secure transactions and real-time multi-tenant order management.",
+      "Web and mobile commerce platform supporting secure transactions, order management and multi-tenant business workflows.",
     stack: "Next.js · Flutter · Tailwind · Payments · APIs",
     status: "STABLE",
   },
   {
     number: "05",
-    name: "IoT Tracking Software",
-    role: "Systems Developer",
+    name: "Locker & Fulfillment Platform",
+    role: "Mobile & Systems Engineer",
     description:
-      "Real-time device monitoring platform handling GPS telemetry, location data and analytics streams.",
-    stack: "Flutter · IoT · GPS · Real-time Data",
-    status: "OPTIMIZED",
+      "Software platform connecting mobile applications, fulfillment workflows and physical access infrastructure.",
+    stack: "Flutter · Native Android · Firebase · APIs · Hardware",
+    status: "PRODUCTION",
   },
   {
     number: "06",
+    name: "Real-Time Tracking Platform",
+    role: "Systems Developer",
+    description:
+      "Real-time tracking and monitoring software combining GPS data, device telemetry, location services and operational analytics.",
+    stack: "Flutter · GPS · IoT · Real-time Data",
+    status: "OPTIMIZED",
+  },
+  {
+    number: "07",
     name: "Kenya Counties",
     role: "Author / Maintainer",
     description:
-      "Open-source Flutter package providing Kenyan county data and an easy-to-integrate county picker component.",
+      "Open-source Flutter package providing Kenyan county data and a customizable county selection component.",
     stack: "Dart · Flutter · Package Development · Pub.dev",
     status: "PUBLISHED",
   },
   {
-    number: "07",
-    name: "Murimi Murango & Advocates",
+    number: "08",
+    name: "Legal Services Platform",
     role: "Web Architect",
     description:
-      "High-performance Next.js website focused on SEO, lead generation, responsive architecture and fast content delivery.",
+      "High-performance web platform focused on SEO, responsive architecture, content delivery and lead generation.",
     stack: "Next.js · React · TypeScript · SEO",
     status: "VERIFIED",
   },
   {
-    number: "08",
-    name: "Rising Gamers Web",
+    number: "09",
+    name: "Gaming Community Platform",
     role: "Frontend Engineer",
     description:
-      "Community platform for gamers built around a responsive modern web experience.",
+      "Responsive community platform designed for gamers with modern web architecture and interactive user experiences.",
     stack: "Next.js · React · Tailwind · Vercel",
     status: "STABLE",
+  },
+  {
+    number: "10",
+    name: "Multiplayer Game Engine",
+    role: "Engine Developer",
+    description:
+      "Real-time multiplayer environment focused on synchronized state, live gameplay and global leaderboard functionality.",
+    stack: "Flutter · Firebase · Cloud Functions · Realtime DB",
+    status: "EXPERIMENTAL",
+  },
+  {
+    number: "11",
+    name: "RoomieDuty",
+    role: "Mobile Developer",
+    description:
+      "Mobile task-management application built around recurring responsibilities, task cycles, notifications and a smooth mobile experience.",
+    stack: "Flutter · Firebase · Notifications",
+    status: "BUILT",
+  },
+  {
+    number: "12",
+    name: "Offline Assistant",
+    role: "Mobile Developer",
+    description:
+      "Offline-first mobile application exploring local processing and intelligent assistance without requiring continuous connectivity.",
+    stack: "Flutter · Local Processing · Offline Architecture",
+    status: "EXPERIMENTAL",
+  },
+  {
+    number: "13",
+    name: "Voice Assistant",
+    role: "Systems Developer",
+    description:
+      "Desktop voice interaction experiment combining speech recognition, local processing and command-driven workflows.",
+    stack: "Python · Speech Recognition · Local Models · macOS",
+    status: "EXPERIMENTAL",
+  },
+  {
+    number: "14",
+    name: "Savings Platform",
+    role: "Mobile Developer",
+    description:
+      "Mobile financial planning experience focused on savings goals, contribution tracking and simple user workflows.",
+    stack: "Flutter · Firebase · Mobile Architecture",
+    status: "BUILT",
+  },
+  {
+    number: "15",
+    name: "Weather Application",
+    role: "Mobile Developer",
+    description:
+      "Weather application focused on API integration, location-aware data and responsive mobile presentation.",
+    stack: "Flutter · REST APIs · Location",
+    status: "BUILT",
+  },
+  {
+    number: "16",
+    name: "Football Community",
+    role: "Application Developer",
+    description:
+      "Community-focused football application exploring live information, discussions and mobile-first user experiences.",
+    stack: "Flutter · Firebase · APIs",
+    status: "BUILT",
   },
 ];
 
@@ -150,7 +222,7 @@ const openSource = [
     number: "02",
     name: "Kenya Counties",
     description:
-      "Flutter package for county selection and Kenyan geographical data integration with a customizable picker interface.",
+      "Flutter package for Kenyan county selection and geographical data integration with a customizable picker interface.",
     tags: "Flutter · Dart · Open Source",
     pub: "https://pub.dev/packages/kenya_counties",
     github: "https://github.com/swangai7178/kenya_counties",
@@ -232,7 +304,6 @@ export default function Home() {
           --text: #f4f4f0;
           --muted: #929292;
           --muted-2: #626262;
-          --accent: #ffffff;
           --green: #7dff9a;
           --max: 1240px;
         }
@@ -273,8 +344,8 @@ export default function Home() {
         }
 
         ::selection {
-          background: #ffffff;
-          color: #000000;
+          background: #fff;
+          color: #000;
         }
 
         .page {
@@ -301,7 +372,7 @@ export default function Home() {
           right: 0;
           height: 76px;
           border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-          background: rgba(8, 8, 8, 0.82);
+          background: rgba(8, 8, 8, 0.84);
           backdrop-filter: blur(18px);
         }
 
@@ -1003,37 +1074,33 @@ export default function Home() {
           color: white;
         }
 
-        @media (max-width: 900px) {
-          .hero-grid,
+        @media (max-width: 1000px) {
+          .hero-grid {
+            grid-template-columns: 1fr;
+            gap: 60px;
+          }
+
+          .terminal {
+            max-width: 700px;
+          }
+
           .architecture,
           .systems,
           .about {
             grid-template-columns: 1fr;
-            gap: 50px;
-          }
-
-          .hero {
-            min-height: auto;
-            padding-top: 150px;
-            padding-bottom: 100px;
-          }
-
-          .terminal {
-            max-width: 650px;
-          }
-
-          .project-grid,
-          .opensource-grid,
-          .stack-grid {
-            grid-template-columns: 1fr;
+            gap: 55px;
           }
 
           .principles {
             grid-template-columns: repeat(2, 1fr);
           }
+        }
 
-          .about {
-            gap: 40px;
+        @media (max-width: 800px) {
+          .project-grid,
+          .opensource-grid,
+          .stack-grid {
+            grid-template-columns: 1fr;
           }
         }
 
@@ -1076,8 +1143,9 @@ export default function Home() {
           }
 
           .hero {
+            min-height: auto;
             padding-top: 120px;
-            padding-bottom: 75px;
+            padding-bottom: 80px;
           }
 
           .hero-logo {
@@ -1228,18 +1296,23 @@ export default function Home() {
               <a href="#work" onClick={closeMenu}>
                 Work
               </a>
+
               <a href="#opensource" onClick={closeMenu}>
                 Open Source
               </a>
+
               <a href="#stack" onClick={closeMenu}>
                 Stack
               </a>
+
               <a href="#systems" onClick={closeMenu}>
                 Systems
               </a>
+
               <a href="#about" onClick={closeMenu}>
                 About
               </a>
+
               <a href="#contact" onClick={closeMenu}>
                 Contact
               </a>
@@ -1297,6 +1370,7 @@ export default function Home() {
                     <span className="terminal-dot" />
                     <span className="terminal-dot" />
                     <span className="terminal-dot" />
+
                     <span className="terminal-title">
                       samuel@systems ~ profile
                     </span>
@@ -1403,13 +1477,15 @@ export default function Home() {
                 <div>
                   <div className="section-number">01 / SELECTED WORK</div>
 
-                  <h2 className="section-title">Systems in production.</h2>
+                  <h2 className="section-title">
+                    Systems in production.
+                  </h2>
                 </div>
 
                 <p className="section-description">
                   Selected platforms, applications and engineering projects
-                  spanning commerce, logistics, mobile, web, IoT and
-                  infrastructure.
+                  spanning commerce, logistics, mobile, web, IoT, developer
+                  tooling and connected systems.
                 </p>
               </div>
 
@@ -1467,7 +1543,9 @@ export default function Home() {
               <div className="opensource-grid">
                 {openSource.map((item) => (
                   <article className="opensource-card" key={item.number}>
-                    <span className="opensource-number">{item.number}</span>
+                    <span className="opensource-number">
+                      {item.number}
+                    </span>
 
                     <h3>{item.name}</h3>
 
@@ -1504,9 +1582,13 @@ export default function Home() {
             <div className="container">
               <div className="section-header">
                 <div>
-                  <div className="section-number">03 / ENGINEERING STACK</div>
+                  <div className="section-number">
+                    03 / ENGINEERING STACK
+                  </div>
 
-                  <h2 className="section-title">The tools behind it.</h2>
+                  <h2 className="section-title">
+                    The tools behind it.
+                  </h2>
                 </div>
 
                 <p className="section-description">
@@ -1580,18 +1662,24 @@ export default function Home() {
                   </h2>
 
                   <p>
-                    Applications are only one layer of a system. I work across
-                    APIs, databases, messaging, authentication, cloud
-                    infrastructure, maps, device communication and the mobile
-                    experience that connects everything together.
+                    Applications are only one layer of a system. I work
+                    across APIs, databases, messaging, authentication,
+                    cloud infrastructure, maps, device communication and
+                    the mobile experience that connects everything together.
                   </p>
                 </div>
 
                 <div className="architecture-diagram">
                   <div className="diagram-node node-1">MOBILE</div>
+
                   <div className="diagram-node node-2">WEB</div>
-                  <div className="diagram-node node-3">API / SERVICES</div>
+
+                  <div className="diagram-node node-3">
+                    API / SERVICES
+                  </div>
+
                   <div className="diagram-node node-4">DATABASE</div>
+
                   <div className="diagram-node node-5">DEVICES</div>
 
                   <div className="diagram-center">SYSTEM</div>
@@ -1604,17 +1692,22 @@ export default function Home() {
             <div className="container">
               <div className="systems">
                 <div>
-                  <div className="section-number">05 / SYSTEMS ENGINEERING</div>
+                  <div className="section-number">
+                    05 / SYSTEMS ENGINEERING
+                  </div>
 
                   <h2 className="systems-title">
-                    When software meets hardware.
+                    When software
+                    <br />
+                    meets the physical world.
                   </h2>
 
                   <p className="systems-description">
-                    Debugging does not stop at the application layer. I work
-                    across protocols, operating systems, serial interfaces,
-                    cloud services and device communication when the system
-                    requires it.
+                    Some systems require engineering beyond the application
+                    layer. My work has included mobile applications,
+                    backend services, device communication and physical
+                    infrastructure while keeping sensitive implementation
+                    details private.
                   </p>
                 </div>
 
@@ -1623,14 +1716,12 @@ export default function Home() {
                     <span className="system-row-number">01</span>
 
                     <div>
-                      <h3>RK3568 / RS485 Investigation</h3>
+                      <h3>Connected Infrastructure</h3>
 
                       <p>
-                        Investigated Android tablet communication with a Wandu
-                        locker controller, validating protocol frames,
-                        UART configuration, SPI devices, USB interfaces and
-                        CH9434 driver state to isolate the failure below the
-                        application layer.
+                        Integrated mobile software with physical
+                        infrastructure, connecting application workflows to
+                        device-level operations.
                       </p>
                     </div>
                   </div>
@@ -1639,12 +1730,12 @@ export default function Home() {
                     <span className="system-row-number">02</span>
 
                     <div>
-                      <h3>Locker Hardware Integration</h3>
+                      <h3>Device Communication</h3>
 
                       <p>
-                        Flutter application integration with physical locker
-                        hardware through native Android communication channels,
-                        lock commands, status events and backend workflows.
+                        Worked across mobile, native platform services and
+                        device communication layers to diagnose and
+                        integrate connected systems.
                       </p>
                     </div>
                   </div>
@@ -1653,12 +1744,12 @@ export default function Home() {
                     <span className="system-row-number">03</span>
 
                     <div>
-                      <h3>Real-time Location Systems</h3>
+                      <h3>Real-Time Operations</h3>
 
                       <p>
-                        Location-aware mobile workflows combining GPS,
-                        routing, distance calculations, maps and backend
-                        location updates.
+                        Built location-aware and event-driven workflows
+                        involving real-time updates, notifications,
+                        routing and operational state.
                       </p>
                     </div>
                   </div>
@@ -1667,12 +1758,13 @@ export default function Home() {
                     <span className="system-row-number">04</span>
 
                     <div>
-                      <h3>Production Mobile Infrastructure</h3>
+                      <h3>Production Integration</h3>
 
                       <p>
-                        Firebase messaging, background processing, platform
-                        permissions, authentication, release builds and
-                        cross-platform deployment workflows.
+                        Connected mobile applications, backend services and
+                        infrastructure into production workflows while
+                        working within security and confidentiality
+                        requirements.
                       </p>
                     </div>
                   </div>
@@ -1722,9 +1814,9 @@ export default function Home() {
 
                 <div className="about-copy">
                   <p>
-                    I am Samuel Wangai, a Full Stack Systems Engineer focused
-                    on mobile architecture, backend systems and production
-                    software.
+                    I am Samuel Wangai, a Full Stack Systems Engineer
+                    focused on mobile architecture, backend systems and
+                    production software.
                   </p>
 
                   <p>
@@ -1738,8 +1830,8 @@ export default function Home() {
                     I enjoy working on problems where the boundary between
                     product development and systems engineering disappears:
                     real-time applications, logistics platforms, commerce,
-                    developer tooling, APIs, infrastructure and hardware
-                    communication.
+                    developer tooling, APIs, infrastructure and physical
+                    system integrations.
                   </p>
 
                   <p>
@@ -1754,7 +1846,9 @@ export default function Home() {
           <section className="section contact" id="contact">
             <div className="container">
               <div className="contact-inner">
-                <div className="contact-label">08 / START A CONVERSATION</div>
+                <div className="contact-label">
+                  08 / START A CONVERSATION
+                </div>
 
                 <h2 className="contact-title">
                   Have a system
@@ -1799,11 +1893,11 @@ export default function Home() {
                 </a>
 
                 <a
-                  href="https://www.linkedin.com/"
+                  href="mailto:swangai7178@gmail.com"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  LinkedIn
+                  Email
                 </a>
               </div>
             </div>
