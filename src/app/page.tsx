@@ -2,168 +2,253 @@
 
 import { useState } from "react";
 
+function SWLogo({ large = false }: { large?: boolean }) {
+  return (
+    <svg
+      width={large ? 72 : 42}
+      height={large ? 72 : 42}
+      viewBox="0 0 100 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Samuel Wangai logo"
+      role="img"
+    >
+      <rect
+        x="3"
+        y="3"
+        width="94"
+        height="94"
+        rx="22"
+        stroke="currentColor"
+        strokeWidth="5"
+      />
+
+      <path
+        d="M27 32C31 27 37 25 44 25C51 25 57 28 61 33"
+        stroke="currentColor"
+        strokeWidth="7"
+        strokeLinecap="round"
+      />
+
+      <path
+        d="M27 32L61 67"
+        stroke="currentColor"
+        strokeWidth="7"
+        strokeLinecap="round"
+      />
+
+      <path
+        d="M27 67C31 72 37 75 44 75C51 75 57 72 61 67"
+        stroke="currentColor"
+        strokeWidth="7"
+        strokeLinecap="round"
+      />
+
+      <path
+        d="M57 25L73 75"
+        stroke="currentColor"
+        strokeWidth="7"
+        strokeLinecap="round"
+      />
+
+      <path
+        d="M73 25L57 75"
+        stroke="currentColor"
+        strokeWidth="7"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 const projects = [
   {
     number: "01",
-    category: "LOGISTICS PLATFORM",
-    title: "Pinned Flow",
+    name: "Pinned Flow",
+    role: "Systems Engineer",
     description:
-      "A delivery ecosystem connecting runners, senders, locker infrastructure and backend services into a single operational platform.",
-    stack: [
-      "Flutter",
-      "Ruby on Rails",
-      "PostgreSQL",
-      "Firebase",
-      "Maps",
-      "IoT",
-    ],
-    featured: true,
+      "Delivery and logistics ecosystem spanning runner applications, sender workflows, locker hardware, real-time location services, notifications and backend infrastructure.",
+    stack: "Flutter · Rails · Firebase · Maps · Hardware",
+    status: "ACTIVE",
   },
   {
     number: "02",
-    category: "COMMERCE PLATFORM",
-    title: "QuadVendor",
+    name: "QuadVendor Ecosystem",
+    role: "Lead Fullstack Architect",
     description:
-      "A commerce and POS ecosystem covering vendors, products, orders, payments and operational workflows.",
-    stack: ["Flutter", "Next.js", "API", "PostgreSQL"],
-    featured: true,
+      "Unified POS and e-commerce platform with mobile and web applications, real-time inventory, sales orchestration and vendor operations.",
+    stack: "Flutter · Next.js · TypeScript · Firebase · REST",
+    status: "PRODUCTION",
   },
   {
     number: "03",
-    category: "E-COMMERCE",
-    title: "SmartPly",
+    name: "SmartPly Mobile",
+    role: "Fullstack Developer",
     description:
-      "A mobile commerce platform connecting customers, products, vendors and order workflows.",
-    stack: ["Flutter", "Laravel", "Firebase", "REST API"],
-    featured: false,
+      "Scalable commerce experience connecting Flutter applications with a Ruby on Rails backend, PostgreSQL and Firebase services.",
+    stack: "Flutter · Rails · PostgreSQL · Firebase",
+    status: "ACTIVE",
   },
   {
     number: "04",
-    category: "BUSINESS SOFTWARE",
-    title: "Sahibu",
+    name: "Sahibu360 Platform",
+    role: "Systems Engineer",
     description:
-      "Business-focused software for managing operational records and workflows through a mobile-first experience.",
-    stack: ["Flutter", "Backend APIs", "PostgreSQL"],
-    featured: false,
+      "Dual-node commerce platform connecting web and mobile experiences with secure transactions and real-time multi-tenant order management.",
+    stack: "Next.js · Flutter · Tailwind · Payments · APIs",
+    status: "STABLE",
+  },
+  {
+    number: "05",
+    name: "IoT Tracking Software",
+    role: "Systems Developer",
+    description:
+      "Real-time device monitoring platform handling GPS telemetry, location data and analytics streams.",
+    stack: "Flutter · IoT · GPS · Real-time Data",
+    status: "OPTIMIZED",
+  },
+  {
+    number: "06",
+    name: "Kenya Counties",
+    role: "Author / Maintainer",
+    description:
+      "Open-source Flutter package providing Kenyan county data and an easy-to-integrate county picker component.",
+    stack: "Dart · Flutter · Package Development · Pub.dev",
+    status: "PUBLISHED",
+  },
+  {
+    number: "07",
+    name: "Murimi Murango & Advocates",
+    role: "Web Architect",
+    description:
+      "High-performance Next.js website focused on SEO, lead generation, responsive architecture and fast content delivery.",
+    stack: "Next.js · React · TypeScript · SEO",
+    status: "VERIFIED",
+  },
+  {
+    number: "08",
+    name: "Rising Gamers Web",
+    role: "Frontend Engineer",
+    description:
+      "Community platform for gamers built around a responsive modern web experience.",
+    stack: "Next.js · React · Tailwind · Vercel",
+    status: "STABLE",
   },
 ];
 
 const openSource = [
   {
     number: "01",
-    title: "Context Curtain",
-    category: "FLUTTER PACKAGE",
+    name: "Context Curtain",
     description:
-      "A physics-based curtain animation library for Flutter applications, designed for cinematic transitions and reusable UI experiences.",
-    technologies: ["Flutter", "Dart", "CustomPainter", "AnimationController"],
+      "A production-ready Flutter UI/UX animation library using an organic physics-based canvas curtain effect for contextual navigation, onboarding and cinematic reveals.",
+    tags: "Flutter · Dart · CustomPainter · Animation",
     pub: "https://pub.dev/packages/context_curtain",
-    github: "https://github.com/swangai7178",
+    github: "https://github.com/swangai7178/curtain_context",
   },
   {
     number: "02",
-    title: "Kenya Counties",
-    category: "FLUTTER PACKAGE",
+    name: "Kenya Counties",
     description:
-      "A reusable Flutter package for Kenyan county and geographic selection workflows.",
-    technologies: ["Flutter", "Dart", "Open Source"],
-    pub: "https://pub.dev",
-    github: "https://github.com/swangai7178",
+      "Flutter package for county selection and Kenyan geographical data integration with a customizable picker interface.",
+    tags: "Flutter · Dart · Open Source",
+    pub: "https://pub.dev/packages/kenya_counties",
+    github: "https://github.com/swangai7178/kenya_counties",
   },
 ];
 
-const stack = [
-  {
-    title: "MOBILE",
-    items: [
-      "Flutter",
-      "Dart",
-      "Kotlin",
-      "Swift",
-      "React Native",
-      "Firebase",
-    ],
-  },
-  {
-    title: "BACKEND",
-    items: [
-      "Ruby on Rails",
-      "Laravel",
-      "Node.js",
-      "Rust",
-      "REST APIs",
-      "Authentication",
-    ],
-  },
-  {
-    title: "DATA",
-    items: [
-      "PostgreSQL",
-      "Supabase",
-      "Firestore",
-      "Redis",
-      "MySQL",
-      "PostGIS",
-    ],
-  },
-  {
-    title: "SYSTEMS",
-    items: [
-      "Linux",
-      "Docker",
-      "Cloud Run",
-      "CI/CD",
-      "Maps",
-      "Hardware Integration",
-    ],
-  },
-];
+const stack = {
+  mobile: [
+    "Flutter",
+    "Dart",
+    "Kotlin",
+    "Swift",
+    "React Native",
+    "Firebase",
+  ],
+  backend: [
+    "Ruby on Rails",
+    "Laravel",
+    "Node.js",
+    "Rust",
+    "REST APIs",
+    "Authentication",
+  ],
+  data: [
+    "PostgreSQL",
+    "Supabase",
+    "Firestore",
+    "Redis",
+    "MySQL",
+    "PostGIS",
+  ],
+  systems: [
+    "Linux",
+    "Docker",
+    "Cloud Run",
+    "CI/CD",
+    "Maps",
+    "Hardware Integration",
+  ],
+};
 
 const principles = [
-  ["01", "Build for production"],
-  ["02", "Keep systems maintainable"],
-  ["03", "Secure the edges"],
-  ["04", "Measure before optimizing"],
+  {
+    number: "01",
+    title: "Build for production",
+    text: "Architecture decisions should survive real users, real traffic and real operational constraints.",
+  },
+  {
+    number: "02",
+    title: "Keep systems maintainable",
+    text: "Good engineering is not only about making software work. It is about making the next change predictable.",
+  },
+  {
+    number: "03",
+    title: "Secure the edges",
+    text: "Authentication, authorization, validation and infrastructure security belong in the architecture from the beginning.",
+  },
+  {
+    number: "04",
+    title: "Measure before optimizing",
+    text: "Performance work starts with understanding where the system actually spends its time and resources.",
+  },
 ];
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const scrollTo = (id: string) => {
-    setMenuOpen(false);
-
-    document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth",
-    });
-  };
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <main>
+    <>
       <style jsx global>{`
         :root {
-          --bg: #07090c;
-          --bg-soft: #0b0e12;
-          --panel: #101419;
-          --panel-hover: #151a20;
-          --border: #222830;
-          --border-light: #333b45;
-          --text: #f5f7f9;
-          --muted: #929ba6;
-          --muted-2: #606a75;
-          --accent: #6ea8ff;
-          --green: #63d391;
+          --bg: #080808;
+          --surface: #0e0e0e;
+          --surface-2: #121212;
+          --border: #242424;
+          --border-light: #303030;
+          --text: #f4f4f0;
+          --muted: #929292;
+          --muted-2: #626262;
+          --accent: #ffffff;
+          --green: #7dff9a;
+          --max: 1240px;
         }
 
         * {
           box-sizing: border-box;
+          margin: 0;
+          padding: 0;
         }
 
         html {
           scroll-behavior: smooth;
+          background: var(--bg);
         }
 
         body {
-          margin: 0;
-          padding: 0;
           background: var(--bg);
           color: var(--text);
           font-family:
@@ -174,6 +259,8 @@ export default function Home() {
             BlinkMacSystemFont,
             "Segoe UI",
             sans-serif;
+          line-height: 1.5;
+          overflow-x: hidden;
         }
 
         a {
@@ -185,74 +272,79 @@ export default function Home() {
           font: inherit;
         }
 
-        .site {
+        ::selection {
+          background: #ffffff;
+          color: #000000;
+        }
+
+        .page {
           min-height: 100vh;
-          overflow: hidden;
           background:
             radial-gradient(
-              circle at 75% 12%,
-              rgba(57, 103, 170, 0.09),
+              circle at 85% 8%,
+              rgba(255, 255, 255, 0.045),
               transparent 28%
-            ),
-            radial-gradient(
-              circle at 10% 65%,
-              rgba(57, 103, 170, 0.045),
-              transparent 25%
             ),
             var(--bg);
         }
 
         .container {
-          width: min(1180px, calc(100% - 48px));
+          width: min(calc(100% - 48px), var(--max));
           margin: 0 auto;
         }
 
-        /* NAV */
-
         .nav {
-          position: relative;
-          height: 84px;
+          position: fixed;
+          z-index: 100;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 76px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+          background: rgba(8, 8, 8, 0.82);
+          backdrop-filter: blur(18px);
+        }
+
+        .nav-inner {
+          height: 100%;
+          width: min(calc(100% - 48px), var(--max));
+          margin: 0 auto;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .brand {
           display: flex;
           align-items: center;
           gap: 12px;
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 700;
-          letter-spacing: -0.03em;
+          letter-spacing: -0.02em;
         }
 
         .brand-mark {
-          width: 37px;
-          height: 37px;
+          width: 38px;
+          height: 38px;
           display: grid;
           place-items: center;
-          border: 1px solid var(--border-light);
-          border-radius: 8px;
           color: white;
-          background: rgba(255, 255, 255, 0.02);
         }
 
         .brand-mark svg {
-          width: 29px;
-          height: 23px;
+          width: 100%;
+          height: 100%;
         }
 
         .nav-links {
           display: flex;
           align-items: center;
-          gap: 31px;
+          gap: 30px;
+          color: var(--muted);
+          font-size: 13px;
         }
 
         .nav-links a {
-          color: var(--muted);
-          font-size: 11px;
-          letter-spacing: 0.12em;
           transition: color 180ms ease;
         }
 
@@ -260,607 +352,570 @@ export default function Home() {
           color: white;
         }
 
-        .availability {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          color: var(--muted-2);
-          font-size: 9px;
-          letter-spacing: 0.16em;
-        }
-
-        .availability-dot {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: var(--green);
-          box-shadow: 0 0 12px rgba(99, 211, 145, 0.45);
+        .nav-cta {
+          padding: 10px 15px;
+          border: 1px solid var(--border-light);
+          color: white !important;
         }
 
         .menu-button {
           display: none;
-          width: 42px;
-          height: 42px;
+          width: 40px;
+          height: 40px;
           border: 1px solid var(--border);
-          border-radius: 7px;
           background: transparent;
           color: white;
           cursor: pointer;
         }
 
         .mobile-menu {
-          position: absolute;
-          z-index: 50;
-          top: 72px;
-          left: 0;
-          right: 0;
-          padding: 15px 20px;
-          display: flex;
-          flex-direction: column;
-          border: 1px solid var(--border);
-          border-radius: 8px;
-          background: #0a0d11;
+          display: none;
         }
-
-        .mobile-menu a {
-          padding: 14px 0;
-          color: var(--muted);
-          border-bottom: 1px solid var(--border);
-          font-size: 12px;
-          letter-spacing: 0.12em;
-        }
-
-        .mobile-menu a:last-child {
-          border-bottom: none;
-        }
-
-        /* LOGO */
-
-        .sw-logo {
-          display: grid;
-          place-items: center;
-          width: 100%;
-          height: 100%;
-        }
-
-        .sw-logo svg {
-          width: 100%;
-          height: 100%;
-        }
-
-        .sw-logo-large {
-          width: 280px;
-          height: 190px;
-        }
-
-        /* HERO */
 
         .hero {
-          min-height: 720px;
-          display: grid;
-          grid-template-columns: 0.9fr 1.1fr;
+          min-height: 820px;
+          padding-top: 76px;
+          display: flex;
           align-items: center;
-          gap: 80px;
-          padding: 90px 0 110px;
+          position: relative;
         }
 
-        .hero-visual {
-          position: relative;
-          min-height: 455px;
+        .hero-grid {
           display: grid;
-          place-items: center;
-          overflow: hidden;
-          border: 1px solid var(--border);
-          border-radius: 16px;
-          background:
-            linear-gradient(
-              135deg,
-              rgba(255, 255, 255, 0.025),
-              transparent 55%
-            ),
-            var(--panel);
-        }
-
-        .hero-visual::before {
-          content: "";
-          position: absolute;
-          width: 350px;
-          height: 350px;
-          border: 1px solid rgba(110, 168, 255, 0.1);
-          border-radius: 50%;
-        }
-
-        .hero-visual::after {
-          content: "";
-          position: absolute;
-          width: 520px;
-          height: 1px;
-          background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(110, 168, 255, 0.22),
-            transparent
-          );
-          transform: rotate(-35deg);
-        }
-
-        .logo-wrap {
-          position: relative;
-          z-index: 2;
-          width: 280px;
-          color: white;
-          filter: drop-shadow(0 0 35px rgba(255, 255, 255, 0.08));
-        }
-
-        .hero-visual-label {
-          position: absolute;
-          left: 28px;
-          bottom: 25px;
-          color: var(--muted-2);
-          font-family: monospace;
-          font-size: 9px;
-          letter-spacing: 0.2em;
-        }
-
-        .terminal {
-          position: absolute;
-          top: -50px;
-          right: -20px;
-          width: 275px;
-          padding: 14px 16px;
-          border: 1px solid var(--border);
-          border-radius: 8px;
-          background: rgba(8, 11, 15, 0.9);
-          font-family: "SFMono-Regular", Consolas, monospace;
-          font-size: 10px;
-          line-height: 1.8;
-          color: var(--muted);
-        }
-
-        .terminal-line {
-          color: var(--accent);
+          grid-template-columns: 1.15fr 0.85fr;
+          gap: 80px;
+          align-items: center;
         }
 
         .eyebrow {
-          margin: 0 0 24px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
           color: var(--muted);
-          font-family: monospace;
-          font-size: 10px;
-          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          letter-spacing: 0.18em;
+          font-size: 11px;
+          font-weight: 600;
+          margin-bottom: 28px;
         }
 
-        .hero h1 {
-          margin: 0;
-          font-size: clamp(55px, 7vw, 88px);
-          line-height: 0.94;
-          letter-spacing: -0.07em;
-          font-weight: 750;
+        .eyebrow-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: var(--green);
+          box-shadow: 0 0 12px rgba(125, 255, 154, 0.5);
         }
 
-        .hero h1 span {
-          display: block;
-          color: #aab3bd;
+        .hero-logo {
+          color: white;
+          margin-bottom: 28px;
         }
 
         .hero-title {
-          margin-top: 28px;
-          color: #e9edf1;
-          font-size: 16px;
-          letter-spacing: 0.03em;
+          max-width: 850px;
+          font-size: clamp(52px, 7vw, 92px);
+          line-height: 0.94;
+          letter-spacing: -0.065em;
+          font-weight: 750;
+        }
+
+        .hero-title span {
+          color: var(--muted);
         }
 
         .hero-description {
-          max-width: 570px;
-          margin: 20px 0 0;
-          color: var(--muted);
-          font-size: 16px;
-          line-height: 1.85;
+          max-width: 650px;
+          margin-top: 32px;
+          color: #a5a5a5;
+          font-size: 18px;
+          line-height: 1.7;
         }
 
         .hero-actions {
           display: flex;
           gap: 12px;
-          margin-top: 35px;
+          margin-top: 36px;
+          flex-wrap: wrap;
         }
 
         .button {
-          height: 48px;
-          padding: 0 22px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          border-radius: 5px;
-          font-size: 10px;
-          font-weight: 700;
-          letter-spacing: 0.1em;
-          cursor: pointer;
+          min-height: 46px;
+          padding: 0 18px;
+          border: 1px solid var(--border-light);
+          font-size: 13px;
+          font-weight: 600;
           transition:
-            transform 180ms ease,
             background 180ms ease,
+            color 180ms ease,
             border-color 180ms ease;
         }
 
-        .button:hover {
-          transform: translateY(-2px);
-        }
-
         .button-primary {
-          border: 1px solid white;
           background: white;
-          color: #07090c;
+          color: black;
+          border-color: white;
         }
 
-        .button-secondary {
-          border: 1px solid var(--border-light);
-          background: transparent;
-          color: white;
+        .button-primary:hover {
+          background: #dedede;
         }
 
         .button-secondary:hover {
-          border-color: #5d6772;
-          background: rgba(255, 255, 255, 0.03);
+          border-color: #555;
+          background: #111;
         }
 
-        /* SECTIONS */
+        .terminal {
+          border: 1px solid var(--border);
+          background: #0b0b0b;
+          box-shadow: 0 30px 100px rgba(0, 0, 0, 0.35);
+        }
+
+        .terminal-bar {
+          height: 42px;
+          padding: 0 14px;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          border-bottom: 1px solid var(--border);
+        }
+
+        .terminal-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #444;
+        }
+
+        .terminal-title {
+          margin-left: 8px;
+          color: #666;
+          font-size: 10px;
+          letter-spacing: 0.08em;
+        }
+
+        .terminal-body {
+          padding: 26px;
+          min-height: 350px;
+          font-family:
+            "SFMono-Regular",
+            Consolas,
+            "Liberation Mono",
+            monospace;
+          font-size: 12px;
+          line-height: 2;
+          color: #bcbcbc;
+        }
+
+        .terminal-line {
+          display: block;
+        }
+
+        .terminal-key {
+          color: #6d6d6d;
+        }
+
+        .terminal-value {
+          color: #ededed;
+        }
+
+        .terminal-green {
+          color: var(--green);
+        }
+
+        .terminal-indent {
+          padding-left: 20px;
+        }
 
         .section {
-          padding: 120px 0;
-          border-top: 1px solid rgba(255, 255, 255, 0.06);
+          padding: 130px 0;
+          border-top: 1px solid var(--border);
         }
 
-        .section-heading {
+        .section-header {
           display: flex;
           justify-content: space-between;
           align-items: flex-end;
           gap: 30px;
-          margin-bottom: 52px;
+          margin-bottom: 55px;
         }
 
         .section-number {
-          margin-bottom: 14px;
           color: var(--muted-2);
           font-family: monospace;
-          font-size: 9px;
-          letter-spacing: 0.2em;
+          font-size: 12px;
+          margin-bottom: 12px;
         }
 
-        .section h2 {
-          margin: 0;
-          font-size: clamp(40px, 5vw, 62px);
-          line-height: 1;
-          letter-spacing: -0.06em;
+        .section-title {
+          font-size: clamp(38px, 5vw, 64px);
+          line-height: 0.98;
+          letter-spacing: -0.055em;
         }
 
-        .section-intro {
-          max-width: 450px;
-          margin: 0;
+        .section-description {
+          max-width: 430px;
           color: var(--muted);
           font-size: 14px;
-          line-height: 1.8;
+          line-height: 1.7;
         }
 
-        /* PROJECTS */
-
-        .projects {
+        .project-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 16px;
+          gap: 1px;
+          background: var(--border);
+          border: 1px solid var(--border);
         }
 
         .project {
-          position: relative;
-          min-height: 315px;
-          padding: 30px;
+          min-height: 360px;
+          padding: 34px;
+          background: var(--surface);
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
-          overflow: hidden;
-          border: 1px solid var(--border);
-          border-radius: 10px;
-          background: var(--panel);
-          transition:
-            transform 220ms ease,
-            border-color 220ms ease,
-            background 220ms ease;
-        }
-
-        .project.featured {
-          min-height: 365px;
+          transition: background 180ms ease;
         }
 
         .project:hover {
-          transform: translateY(-5px);
-          border-color: var(--border-light);
-          background: var(--panel-hover);
-        }
-
-        .project::after {
-          content: "";
-          position: absolute;
-          width: 180px;
-          height: 180px;
-          right: -90px;
-          bottom: -90px;
-          border: 1px solid rgba(110, 168, 255, 0.07);
-          border-radius: 50%;
+          background: var(--surface-2);
         }
 
         .project-top {
           display: flex;
           justify-content: space-between;
+          align-items: center;
+          margin-bottom: 55px;
+        }
+
+        .project-number {
           color: var(--muted-2);
           font-family: monospace;
+          font-size: 12px;
+        }
+
+        .project-status {
+          color: var(--muted);
+          font-family: monospace;
           font-size: 9px;
-          letter-spacing: 0.16em;
+          letter-spacing: 0.1em;
         }
 
         .project h3 {
-          margin: 45px 0 14px;
-          font-size: 32px;
-          letter-spacing: -0.045em;
+          font-size: 27px;
+          line-height: 1.05;
+          letter-spacing: -0.035em;
         }
 
-        .project p {
-          max-width: 500px;
-          margin: 0;
+        .project-role {
+          margin-top: 8px;
           color: var(--muted);
+          font-size: 12px;
+        }
+
+        .project-description {
+          max-width: 560px;
+          margin-top: 20px;
+          color: #999;
           font-size: 14px;
-          line-height: 1.75;
+          line-height: 1.7;
         }
 
         .project-bottom {
-          margin-top: 38px;
           display: flex;
           align-items: flex-end;
           justify-content: space-between;
           gap: 20px;
+          margin-top: auto;
+          padding-top: 35px;
         }
 
-        .tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 7px;
-        }
-
-        .tag {
-          padding: 7px 9px;
-          border: 1px solid var(--border);
-          border-radius: 3px;
-          color: var(--muted);
+        .project-stack {
+          color: #666;
           font-family: monospace;
-          font-size: 8px;
+          font-size: 10px;
+          line-height: 1.6;
         }
 
-        .case-link {
+        .project-link {
           white-space: nowrap;
           color: white;
-          font-family: monospace;
-          font-size: 9px;
-          font-weight: 700;
-          letter-spacing: 0.1em;
+          font-size: 11px;
+          letter-spacing: 0.08em;
         }
-
-        /* OPEN SOURCE */
 
         .opensource-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 16px;
+          gap: 18px;
         }
 
         .opensource-card {
-          position: relative;
-          min-height: 330px;
-          padding: 35px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
           border: 1px solid var(--border);
-          border-radius: 10px;
-          background: var(--panel);
-          transition:
-            transform 220ms ease,
-            border-color 220ms ease;
+          padding: 32px;
+          background: var(--surface);
         }
 
         .opensource-card:hover {
-          transform: translateY(-5px);
           border-color: var(--border-light);
         }
 
         .opensource-number {
           color: var(--muted-2);
           font-family: monospace;
-          font-size: 9px;
+          font-size: 11px;
         }
 
         .opensource-card h3 {
-          margin: 28px 0 12px;
-          font-size: 34px;
-          letter-spacing: -0.05em;
-        }
-
-        .opensource-card p {
-          max-width: 540px;
-          color: var(--muted);
-          font-size: 14px;
-          line-height: 1.8;
-        }
-
-        .opensource-tech {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 7px;
-          margin-top: 25px;
-        }
-
-        .opensource-tech span {
-          padding: 7px 9px;
-          border: 1px solid var(--border);
-          border-radius: 3px;
-          color: var(--muted);
-          font-family: monospace;
-          font-size: 8px;
-        }
-
-        .opensource-actions {
-          display: flex;
-          gap: 25px;
-          margin-top: 30px;
-        }
-
-        .opensource-actions a {
-          color: white;
-          font-family: monospace;
-          font-size: 9px;
-          font-weight: 700;
-          letter-spacing: 0.08em;
-        }
-
-        /* STACK */
-
-        .stack-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 1px;
-          overflow: hidden;
-          border: 1px solid var(--border);
-          background: var(--border);
-        }
-
-        .stack-card {
-          min-height: 250px;
-          padding: 30px;
-          background: var(--bg-soft);
-        }
-
-        .stack-card h3 {
-          margin: 0 0 32px;
-          color: var(--muted);
-          font-family: monospace;
-          font-size: 9px;
-          letter-spacing: 0.2em;
-        }
-
-        .stack-card ul {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-        }
-
-        .stack-card li {
-          margin-bottom: 13px;
-          color: #e4e8ec;
-          font-size: 13px;
-        }
-
-        /* ARCHITECTURE */
-
-        .architecture {
-          display: grid;
-          grid-template-columns: 0.7fr 1.3fr;
-          gap: 70px;
-          align-items: center;
-        }
-
-        .architecture h2 {
-          font-size: clamp(40px, 5vw, 60px);
-        }
-
-        .architecture-copy p {
-          max-width: 430px;
-          color: var(--muted);
-          line-height: 1.85;
-        }
-
-        .architecture-flow {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 8px;
-        }
-
-        .architecture-node {
-          min-height: 145px;
-          padding: 20px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          border: 1px solid var(--border);
-          border-radius: 7px;
-          background: var(--panel);
-        }
-
-        .architecture-node strong:first-child {
-          color: var(--muted-2);
-          font-family: monospace;
-          font-size: 9px;
-        }
-
-        .architecture-node strong:nth-child(2) {
-          font-size: 13px;
-        }
-
-        .architecture-node span {
-          color: var(--muted);
-          font-size: 10px;
-          line-height: 1.5;
-        }
-
-        /* HARDWARE */
-
-        .systems-section {
-          background:
-            linear-gradient(
-              90deg,
-              rgba(255, 255, 255, 0.015),
-              transparent 40%,
-              rgba(255, 255, 255, 0.015)
-            );
-        }
-
-        .systems-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 18px;
-        }
-
-        .systems-card {
-          padding: 42px;
-          border: 1px solid var(--border);
-          border-radius: 10px;
-          background: var(--panel);
-        }
-
-        .systems-card h3 {
-          margin: 12px 0 15px;
+          margin-top: 40px;
           font-size: 28px;
           letter-spacing: -0.04em;
         }
 
-        .systems-card p {
-          margin: 0;
+        .opensource-card p {
+          margin-top: 16px;
+          max-width: 560px;
+          color: var(--muted);
+          font-size: 14px;
+          line-height: 1.7;
+        }
+
+        .opensource-tags {
+          margin-top: 25px;
+          color: #666;
+          font-family: monospace;
+          font-size: 10px;
+        }
+
+        .opensource-actions {
+          display: flex;
+          gap: 18px;
+          margin-top: 30px;
+        }
+
+        .text-link {
+          color: white;
+          font-size: 11px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+
+        .stack-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          border-top: 1px solid var(--border);
+          border-left: 1px solid var(--border);
+        }
+
+        .stack-group {
+          padding: 35px;
+          min-height: 220px;
+          border-right: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
+        }
+
+        .stack-group-title {
+          color: var(--muted);
+          font-family: monospace;
+          font-size: 10px;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+        }
+
+        .stack-items {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 9px;
+          margin-top: 25px;
+        }
+
+        .stack-item {
+          border: 1px solid var(--border);
+          padding: 8px 10px;
+          color: #c9c9c9;
+          background: #0b0b0b;
+          font-size: 12px;
+        }
+
+        .architecture {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 80px;
+          align-items: center;
+        }
+
+        .architecture-copy h2 {
+          max-width: 650px;
+          font-size: clamp(40px, 5vw, 68px);
+          line-height: 0.98;
+          letter-spacing: -0.055em;
+        }
+
+        .architecture-copy p {
+          max-width: 570px;
+          margin-top: 28px;
+          color: var(--muted);
+          font-size: 15px;
+          line-height: 1.8;
+        }
+
+        .architecture-diagram {
+          position: relative;
+          min-height: 410px;
+          border: 1px solid var(--border);
+          background:
+            linear-gradient(
+              90deg,
+              transparent 49.8%,
+              rgba(255, 255, 255, 0.035) 50%,
+              transparent 50.2%
+            ),
+            linear-gradient(
+              transparent 49.8%,
+              rgba(255, 255, 255, 0.035) 50%,
+              transparent 50.2%
+            ),
+            #0b0b0b;
+        }
+
+        .diagram-node {
+          position: absolute;
+          border: 1px solid #3a3a3a;
+          background: #111;
+          padding: 12px 16px;
+          color: #ddd;
+          font-family: monospace;
+          font-size: 10px;
+        }
+
+        .node-1 {
+          top: 40px;
+          left: 30px;
+        }
+
+        .node-2 {
+          top: 40px;
+          right: 30px;
+        }
+
+        .node-3 {
+          top: 170px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        .node-4 {
+          bottom: 45px;
+          left: 35px;
+        }
+
+        .node-5 {
+          bottom: 45px;
+          right: 35px;
+        }
+
+        .diagram-center {
+          position: absolute;
+          width: 105px;
+          height: 105px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border: 1px solid #555;
+          border-radius: 50%;
+          display: grid;
+          place-items: center;
+          color: white;
+          font-family: monospace;
+          font-size: 10px;
+          background: #0c0c0c;
+        }
+
+        .systems {
+          display: grid;
+          grid-template-columns: 0.75fr 1.25fr;
+          gap: 80px;
+        }
+
+        .systems-title {
+          font-size: clamp(40px, 5vw, 65px);
+          line-height: 0.98;
+          letter-spacing: -0.055em;
+        }
+
+        .systems-description {
+          margin-top: 25px;
           color: var(--muted);
           font-size: 14px;
           line-height: 1.8;
         }
 
-        .systems-tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 7px;
-          margin-top: 30px;
+        .systems-list {
+          border-top: 1px solid var(--border);
         }
 
-        .systems-tags span {
-          padding: 8px 10px;
-          border: 1px solid var(--border);
-          border-radius: 3px;
-          color: var(--muted);
+        .system-row {
+          display: grid;
+          grid-template-columns: 55px 1fr;
+          gap: 20px;
+          padding: 24px 0;
+          border-bottom: 1px solid var(--border);
+        }
+
+        .system-row-number {
+          color: var(--muted-2);
           font-family: monospace;
-          font-size: 8px;
+          font-size: 11px;
         }
 
-        /* ABOUT */
+        .system-row h3 {
+          font-size: 17px;
+          font-weight: 600;
+        }
+
+        .system-row p {
+          margin-top: 6px;
+          color: var(--muted);
+          font-size: 13px;
+          line-height: 1.65;
+        }
+
+        .principles {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          border-top: 1px solid var(--border);
+          border-left: 1px solid var(--border);
+        }
+
+        .principle {
+          min-height: 270px;
+          padding: 28px;
+          border-right: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
+        }
+
+        .principle-number {
+          color: var(--muted-2);
+          font-family: monospace;
+          font-size: 11px;
+        }
+
+        .principle h3 {
+          margin-top: 75px;
+          font-size: 18px;
+          line-height: 1.2;
+        }
+
+        .principle p {
+          margin-top: 12px;
+          color: var(--muted);
+          font-size: 12px;
+          line-height: 1.7;
+        }
 
         .about {
           display: grid;
@@ -868,238 +923,277 @@ export default function Home() {
           gap: 100px;
         }
 
-        .about h2 {
-          font-size: clamp(44px, 6vw, 76px);
+        .about-title {
+          font-size: clamp(40px, 5vw, 70px);
+          line-height: 0.98;
+          letter-spacing: -0.055em;
         }
 
         .about-copy {
-          color: var(--muted);
+          color: #aaa;
           font-size: 16px;
-          line-height: 1.9;
+          line-height: 1.85;
         }
 
-        .about-copy p {
-          margin: 0 0 25px;
+        .about-copy p + p {
+          margin-top: 22px;
         }
-
-        .principles {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          margin-top: 45px;
-          border-top: 1px solid var(--border);
-        }
-
-        .principle {
-          padding: 22px 0;
-          border-bottom: 1px solid var(--border);
-          color: #e4e7ea;
-          font-size: 13px;
-        }
-
-        .principle span {
-          display: inline-block;
-          width: 42px;
-          color: var(--muted-2);
-          font-family: monospace;
-          font-size: 9px;
-        }
-
-        /* CONTACT */
 
         .contact {
-          padding: 150px 0;
-          text-align: center;
-          border-top: 1px solid rgba(255, 255, 255, 0.06);
+          min-height: 580px;
+          display: flex;
+          align-items: center;
         }
 
-        .contact h2 {
-          max-width: 850px;
-          margin: 0 auto;
-          font-size: clamp(50px, 7vw, 88px);
-          line-height: 0.97;
+        .contact-inner {
+          width: 100%;
+          text-align: center;
+        }
+
+        .contact-label {
+          color: var(--muted);
+          font-family: monospace;
+          font-size: 11px;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+        }
+
+        .contact-title {
+          max-width: 1000px;
+          margin: 25px auto 0;
+          font-size: clamp(52px, 9vw, 120px);
+          line-height: 0.88;
           letter-spacing: -0.07em;
         }
 
-        .contact p {
-          max-width: 540px;
-          margin: 28px auto 35px;
-          color: var(--muted);
-          line-height: 1.8;
+        .contact-email {
+          display: inline-block;
+          margin-top: 42px;
+          padding-bottom: 8px;
+          border-bottom: 1px solid #555;
+          font-size: 17px;
+          transition: border-color 180ms ease;
         }
 
-        /* FOOTER */
+        .contact-email:hover {
+          border-color: white;
+        }
 
         .footer {
-          min-height: 80px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
           border-top: 1px solid var(--border);
+          padding: 28px 0;
+        }
+
+        .footer-inner {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 20px;
           color: var(--muted-2);
           font-family: monospace;
-          font-size: 9px;
+          font-size: 10px;
         }
 
         .footer-links {
           display: flex;
-          gap: 25px;
+          gap: 20px;
         }
 
         .footer-links a:hover {
           color: white;
         }
 
-        @media (max-width: 950px) {
-          .hero {
-            grid-template-columns: 1fr;
-            gap: 55px;
-          }
-
-          .hero-visual {
-            order: 2;
-          }
-
-          .terminal {
-            display: none;
-          }
-
-          .stack-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-
-          .architecture {
-            grid-template-columns: 1fr;
-          }
-
+        @media (max-width: 900px) {
+          .hero-grid,
+          .architecture,
+          .systems,
           .about {
             grid-template-columns: 1fr;
-            gap: 35px;
-          }
-        }
-
-        @media (max-width: 700px) {
-          .container {
-            width: calc(100% - 32px);
-          }
-
-          .nav {
-            height: 72px;
-          }
-
-          .nav-links,
-          .availability {
-            display: none;
-          }
-
-          .menu-button {
-            display: block;
+            gap: 50px;
           }
 
           .hero {
             min-height: auto;
-            padding: 65px 0 90px;
+            padding-top: 150px;
+            padding-bottom: 100px;
           }
 
-          .hero-visual {
-            min-height: 330px;
+          .terminal {
+            max-width: 650px;
           }
 
-          .logo-wrap {
-            width: 220px;
+          .project-grid,
+          .opensource-grid,
+          .stack-grid {
+            grid-template-columns: 1fr;
           }
 
-          .hero h1 {
-            font-size: 54px;
+          .principles {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          .about {
+            gap: 40px;
+          }
+        }
+
+        @media (max-width: 700px) {
+          .container,
+          .nav-inner {
+            width: min(calc(100% - 30px), var(--max));
+          }
+
+          .nav {
+            height: 68px;
+          }
+
+          .nav-links {
+            display: none;
+          }
+
+          .menu-button {
+            display: grid;
+            place-items: center;
+          }
+
+          .mobile-menu {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            top: 68px;
+            left: 0;
+            right: 0;
+            background: rgba(8, 8, 8, 0.98);
+            border-bottom: 1px solid var(--border);
+            padding: 15px;
+          }
+
+          .mobile-menu a {
+            padding: 16px 10px;
+            border-bottom: 1px solid var(--border);
+            color: #aaa;
+            font-size: 13px;
+          }
+
+          .hero {
+            padding-top: 120px;
+            padding-bottom: 75px;
+          }
+
+          .hero-logo {
+            margin-bottom: 22px;
+          }
+
+          .hero-title {
+            font-size: clamp(48px, 14vw, 76px);
           }
 
           .hero-description {
-            font-size: 14px;
-          }
-
-          .hero-actions {
-            flex-direction: column;
-          }
-
-          .button {
-            width: 100%;
+            font-size: 16px;
           }
 
           .section {
             padding: 85px 0;
           }
 
-          .section-heading {
+          .section-header {
             display: block;
             margin-bottom: 35px;
           }
 
-          .section-intro {
+          .section-description {
             margin-top: 20px;
           }
 
-          .projects,
-          .opensource-grid,
-          .systems-grid {
-            grid-template-columns: 1fr;
+          .project {
+            min-height: 390px;
+            padding: 25px;
           }
 
-          .project,
-          .project.featured {
-            min-height: 320px;
+          .project-top {
+            margin-bottom: 45px;
+          }
+
+          .project h3 {
+            font-size: 25px;
           }
 
           .project-bottom {
             display: block;
           }
 
-          .case-link {
-            display: block;
+          .project-link {
+            display: inline-block;
             margin-top: 20px;
           }
 
-          .stack-grid {
-            grid-template-columns: 1fr;
+          .opensource-card {
+            padding: 25px;
           }
 
-          .stack-card {
+          .opensource-card h3 {
+            margin-top: 35px;
+          }
+
+          .stack-group {
             min-height: auto;
+            padding: 25px;
           }
 
-          .architecture-flow {
-            grid-template-columns: 1fr 1fr;
+          .architecture-diagram {
+            min-height: 330px;
           }
 
-          .systems-card {
-            padding: 30px;
+          .diagram-node {
+            padding: 9px 11px;
+            font-size: 8px;
+          }
+
+          .diagram-center {
+            width: 85px;
+            height: 85px;
+            font-size: 8px;
           }
 
           .principles {
             grid-template-columns: 1fr;
           }
 
+          .principle {
+            min-height: auto;
+          }
+
+          .principle h3 {
+            margin-top: 45px;
+          }
+
           .contact {
-            padding: 100px 0;
+            min-height: 470px;
           }
 
-          .contact h2 {
-            font-size: 52px;
+          .contact-title {
+            font-size: clamp(50px, 15vw, 82px);
           }
 
-          .footer {
+          .contact-email {
+            font-size: 14px;
+            word-break: break-word;
+          }
+
+          .footer-inner {
             display: block;
-            padding: 25px 0;
           }
 
           .footer-links {
-            margin-top: 18px;
+            margin-top: 14px;
           }
         }
       `}</style>
 
-      <div className="site">
-        <div className="container">
-          <nav className="nav">
-            <a href="#" className="brand">
+      <div className="page">
+        <nav className="nav">
+          <div className="nav-inner">
+            <a href="#" className="brand" onClick={closeMenu}>
               <span className="brand-mark">
                 <SWLogo />
               </span>
@@ -1108,490 +1202,614 @@ export default function Home() {
             </a>
 
             <div className="nav-links">
-              <a href="#work">WORK</a>
-              <a href="#opensource">OPEN SOURCE</a>
-              <a href="#stack">STACK</a>
-              <a href="#about">ABOUT</a>
+              <a href="#work">Work</a>
+              <a href="#opensource">Open Source</a>
+              <a href="#stack">Stack</a>
+              <a href="#systems">Systems</a>
+              <a href="#about">About</a>
 
-              <a
-                href="https://github.com/swangai7178"
-                target="_blank"
-                rel="noreferrer"
-              >
-                GITHUB ↗
+              <a href="#contact" className="nav-cta">
+                Contact
               </a>
             </div>
 
-            <div className="availability">
-              <span className="availability-dot" />
-              OPEN TO SELECTED WORK
-            </div>
-
             <button
+              type="button"
               className="menu-button"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle navigation"
             >
               {menuOpen ? "×" : "☰"}
             </button>
+          </div>
 
-            {menuOpen && (
-              <div className="mobile-menu">
-                <a href="#work" onClick={() => scrollTo("work")}>
-                  WORK
-                </a>
+          {menuOpen && (
+            <div className="mobile-menu">
+              <a href="#work" onClick={closeMenu}>
+                Work
+              </a>
+              <a href="#opensource" onClick={closeMenu}>
+                Open Source
+              </a>
+              <a href="#stack" onClick={closeMenu}>
+                Stack
+              </a>
+              <a href="#systems" onClick={closeMenu}>
+                Systems
+              </a>
+              <a href="#about" onClick={closeMenu}>
+                About
+              </a>
+              <a href="#contact" onClick={closeMenu}>
+                Contact
+              </a>
+            </div>
+          )}
+        </nav>
 
-                <a
-                  href="#opensource"
-                  onClick={() => scrollTo("opensource")}
-                >
-                  OPEN SOURCE
-                </a>
-
-                <a href="#stack" onClick={() => scrollTo("stack")}>
-                  STACK
-                </a>
-
-                <a href="#about" onClick={() => scrollTo("about")}>
-                  ABOUT
-                </a>
-
-                <a
-                  href="https://github.com/swangai7178"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GITHUB ↗
-                </a>
-              </div>
-            )}
-          </nav>
-
-          {/* HERO */}
-
+        <main>
           <section className="hero">
-            <div className="hero-visual">
-              <div className="logo-wrap">
-                <SWLogo large />
-              </div>
+            <div className="container">
+              <div className="hero-grid">
+                <div>
+                  <div className="eyebrow">
+                    <span className="eyebrow-dot" />
+                    Full Stack Systems Engineer
+                  </div>
 
-              <div className="hero-visual-label">
-                MOBILE · BACKEND · SYSTEMS
+                  <div className="hero-logo">
+                    <SWLogo large />
+                  </div>
+
+                  <h1 className="hero-title">
+                    Mobile architecture.
+                    <br />
+                    Backend systems.
+                    <br />
+                    <span>Engineering that scales.</span>
+                  </h1>
+
+                  <p className="hero-description">
+                    I design and build production software across mobile,
+                    backend, cloud infrastructure and connected systems —
+                    from Flutter applications and Rails APIs to real-time
+                    services and hardware-integrated platforms.
+                  </p>
+
+                  <div className="hero-actions">
+                    <a href="#work" className="button button-primary">
+                      View selected work
+                    </a>
+
+                    <a
+                      href="https://github.com/swangai7178"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="button button-secondary"
+                    >
+                      GitHub
+                    </a>
+                  </div>
+                </div>
+
+                <div className="terminal">
+                  <div className="terminal-bar">
+                    <span className="terminal-dot" />
+                    <span className="terminal-dot" />
+                    <span className="terminal-dot" />
+                    <span className="terminal-title">
+                      samuel@systems ~ profile
+                    </span>
+                  </div>
+
+                  <div className="terminal-body">
+                    <span className="terminal-line">
+                      <span className="terminal-key">const </span>
+                      <span className="terminal-value">engineer</span>{" "}
+                      <span className="terminal-key">= {"{"}</span>
+                    </span>
+
+                    <span className="terminal-line terminal-indent">
+                      <span className="terminal-key">name:</span>{" "}
+                      <span className="terminal-value">
+                        &quot;Samuel Wangai&quot;
+                      </span>
+                      ,
+                    </span>
+
+                    <span className="terminal-line terminal-indent">
+                      <span className="terminal-key">focus:</span>{" "}
+                      <span className="terminal-value">
+                        &quot;Systems Engineering&quot;
+                      </span>
+                      ,
+                    </span>
+
+                    <span className="terminal-line terminal-indent">
+                      <span className="terminal-key">mobile:</span>{" "}
+                      <span className="terminal-value">
+                        [&quot;Flutter&quot;, &quot;Kotlin&quot;, &quot;Swift&quot;]
+                      </span>
+                      ,
+                    </span>
+
+                    <span className="terminal-line terminal-indent">
+                      <span className="terminal-key">backend:</span>{" "}
+                      <span className="terminal-value">
+                        [&quot;Rails&quot;, &quot;Laravel&quot;, &quot;Node&quot;,
+                        &quot;Rust&quot;]
+                      </span>
+                      ,
+                    </span>
+
+                    <span className="terminal-line terminal-indent">
+                      <span className="terminal-key">data:</span>{" "}
+                      <span className="terminal-value">
+                        [&quot;PostgreSQL&quot;, &quot;Redis&quot;,
+                        &quot;Firestore&quot;]
+                      </span>
+                      ,
+                    </span>
+
+                    <span className="terminal-line terminal-indent">
+                      <span className="terminal-key">systems:</span>{" "}
+                      <span className="terminal-value">
+                        [&quot;Linux&quot;, &quot;Docker&quot;, &quot;Cloud
+                        Run&quot;]
+                      </span>
+                    </span>
+
+                    <span className="terminal-line">
+                      <span className="terminal-key">{"}"}</span>
+                    </span>
+
+                    <br />
+
+                    <span className="terminal-line">
+                      <span className="terminal-green">$</span>{" "}
+                      <span className="terminal-value">
+                        ./build --environment=production
+                      </span>
+                    </span>
+
+                    <span className="terminal-line">
+                      <span className="terminal-key">→ </span>
+                      compiling architecture...
+                    </span>
+
+                    <span className="terminal-line">
+                      <span className="terminal-key">→ </span>
+                      connecting services...
+                    </span>
+
+                    <span className="terminal-line">
+                      <span className="terminal-key">→ </span>
+                      validating interfaces...
+                    </span>
+
+                    <span className="terminal-line">
+                      <span className="terminal-green">✓ </span>
+                      system ready
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
+          </section>
 
-            <div className="hero-copy">
-              <div className="terminal">
+          <section className="section" id="work">
+            <div className="container">
+              <div className="section-header">
                 <div>
-                  <span className="terminal-line">sam@systems:~$</span>{" "}
-                  build --production
+                  <div className="section-number">01 / SELECTED WORK</div>
+
+                  <h2 className="section-title">Systems in production.</h2>
                 </div>
 
-                <div>
-                  <span className="terminal-line">status:</span> shipping
-                </div>
-
-                <div>
-                  <span className="terminal-line">stack:</span> full
-                </div>
-
-                <div>&gt; _</div>
+                <p className="section-description">
+                  Selected platforms, applications and engineering projects
+                  spanning commerce, logistics, mobile, web, IoT and
+                  infrastructure.
+                </p>
               </div>
 
-              <p className="eyebrow">SAMUEL WANGAI</p>
+              <div className="project-grid">
+                {projects.map((project) => (
+                  <article className="project" key={project.number}>
+                    <div className="project-top">
+                      <span className="project-number">
+                        {project.number}
+                      </span>
 
-              <h1>
-                Full Stack
-                <span>Systems Engineer.</span>
-              </h1>
+                      <span className="project-status">
+                        {project.status}
+                      </span>
+                    </div>
 
-              <div className="hero-title">
-                Mobile Architecture · Backend Systems · Security · Performance
+                    <div>
+                      <h3>{project.name}</h3>
+
+                      <div className="project-role">{project.role}</div>
+
+                      <p className="project-description">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    <div className="project-bottom">
+                      <span className="project-stack">
+                        {project.stack}
+                      </span>
+
+                      <span className="project-link">EXPLORE →</span>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="section" id="opensource">
+            <div className="container">
+              <div className="section-header">
+                <div>
+                  <div className="section-number">02 / OPEN SOURCE</div>
+
+                  <h2 className="section-title">Tools I ship.</h2>
+                </div>
+
+                <p className="section-description">
+                  Developer-focused libraries and packages built to solve
+                  reusable problems and shared publicly.
+                </p>
               </div>
 
-              <p className="hero-description">
-                I design and build production software across mobile, backend
-                and infrastructure — from Flutter applications and APIs to
-                real-time platforms, location systems, payments and developer
-                tools.
-              </p>
+              <div className="opensource-grid">
+                {openSource.map((item) => (
+                  <article className="opensource-card" key={item.number}>
+                    <span className="opensource-number">{item.number}</span>
 
-              <div className="hero-actions">
-                <button
-                  className="button button-primary"
-                  onClick={() => scrollTo("work")}
-                >
-                  VIEW SELECTED WORK
-                </button>
+                    <h3>{item.name}</h3>
+
+                    <p>{item.description}</p>
+
+                    <div className="opensource-tags">{item.tags}</div>
+
+                    <div className="opensource-actions">
+                      <a
+                        href={item.pub}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-link"
+                      >
+                        Pub.dev →
+                      </a>
+
+                      <a
+                        href={item.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-link"
+                      >
+                        GitHub →
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="section" id="stack">
+            <div className="container">
+              <div className="section-header">
+                <div>
+                  <div className="section-number">03 / ENGINEERING STACK</div>
+
+                  <h2 className="section-title">The tools behind it.</h2>
+                </div>
+
+                <p className="section-description">
+                  A practical stack built around shipping reliable software
+                  rather than following a single technology trend.
+                </p>
+              </div>
+
+              <div className="stack-grid">
+                <div className="stack-group">
+                  <div className="stack-group-title">Mobile</div>
+
+                  <div className="stack-items">
+                    {stack.mobile.map((item) => (
+                      <span className="stack-item" key={item}>
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="stack-group">
+                  <div className="stack-group-title">Backend</div>
+
+                  <div className="stack-items">
+                    {stack.backend.map((item) => (
+                      <span className="stack-item" key={item}>
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="stack-group">
+                  <div className="stack-group-title">Data</div>
+
+                  <div className="stack-items">
+                    {stack.data.map((item) => (
+                      <span className="stack-item" key={item}>
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="stack-group">
+                  <div className="stack-group-title">Systems</div>
+
+                  <div className="stack-items">
+                    {stack.systems.map((item) => (
+                      <span className="stack-item" key={item}>
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="section" id="architecture">
+            <div className="container">
+              <div className="architecture">
+                <div className="architecture-copy">
+                  <div className="section-number">04 / ARCHITECTURE</div>
+
+                  <h2>
+                    Think beyond
+                    <br />
+                    the interface.
+                  </h2>
+
+                  <p>
+                    Applications are only one layer of a system. I work across
+                    APIs, databases, messaging, authentication, cloud
+                    infrastructure, maps, device communication and the mobile
+                    experience that connects everything together.
+                  </p>
+                </div>
+
+                <div className="architecture-diagram">
+                  <div className="diagram-node node-1">MOBILE</div>
+                  <div className="diagram-node node-2">WEB</div>
+                  <div className="diagram-node node-3">API / SERVICES</div>
+                  <div className="diagram-node node-4">DATABASE</div>
+                  <div className="diagram-node node-5">DEVICES</div>
+
+                  <div className="diagram-center">SYSTEM</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="section" id="systems">
+            <div className="container">
+              <div className="systems">
+                <div>
+                  <div className="section-number">05 / SYSTEMS ENGINEERING</div>
+
+                  <h2 className="systems-title">
+                    When software meets hardware.
+                  </h2>
+
+                  <p className="systems-description">
+                    Debugging does not stop at the application layer. I work
+                    across protocols, operating systems, serial interfaces,
+                    cloud services and device communication when the system
+                    requires it.
+                  </p>
+                </div>
+
+                <div className="systems-list">
+                  <div className="system-row">
+                    <span className="system-row-number">01</span>
+
+                    <div>
+                      <h3>RK3568 / RS485 Investigation</h3>
+
+                      <p>
+                        Investigated Android tablet communication with a Wandu
+                        locker controller, validating protocol frames,
+                        UART configuration, SPI devices, USB interfaces and
+                        CH9434 driver state to isolate the failure below the
+                        application layer.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="system-row">
+                    <span className="system-row-number">02</span>
+
+                    <div>
+                      <h3>Locker Hardware Integration</h3>
+
+                      <p>
+                        Flutter application integration with physical locker
+                        hardware through native Android communication channels,
+                        lock commands, status events and backend workflows.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="system-row">
+                    <span className="system-row-number">03</span>
+
+                    <div>
+                      <h3>Real-time Location Systems</h3>
+
+                      <p>
+                        Location-aware mobile workflows combining GPS,
+                        routing, distance calculations, maps and backend
+                        location updates.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="system-row">
+                    <span className="system-row-number">04</span>
+
+                    <div>
+                      <h3>Production Mobile Infrastructure</h3>
+
+                      <p>
+                        Firebase messaging, background processing, platform
+                        permissions, authentication, release builds and
+                        cross-platform deployment workflows.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="section">
+            <div className="container">
+              <div className="section-header">
+                <div>
+                  <div className="section-number">06 / PRINCIPLES</div>
+
+                  <h2 className="section-title">How I engineer.</h2>
+                </div>
+              </div>
+
+              <div className="principles">
+                {principles.map((principle) => (
+                  <article className="principle" key={principle.number}>
+                    <span className="principle-number">
+                      {principle.number}
+                    </span>
+
+                    <h3>{principle.title}</h3>
+
+                    <p>{principle.text}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="section" id="about">
+            <div className="container">
+              <div className="about">
+                <div>
+                  <div className="section-number">07 / ABOUT</div>
+
+                  <h2 className="about-title">
+                    Software is
+                    <br />
+                    systems.
+                  </h2>
+                </div>
+
+                <div className="about-copy">
+                  <p>
+                    I am Samuel Wangai, a Full Stack Systems Engineer focused
+                    on mobile architecture, backend systems and production
+                    software.
+                  </p>
+
+                  <p>
+                    My work spans Flutter and native mobile development,
+                    Ruby on Rails, Laravel, Node.js and Rust backends,
+                    PostgreSQL and distributed data systems, cloud
+                    infrastructure and connected hardware.
+                  </p>
+
+                  <p>
+                    I enjoy working on problems where the boundary between
+                    product development and systems engineering disappears:
+                    real-time applications, logistics platforms, commerce,
+                    developer tooling, APIs, infrastructure and hardware
+                    communication.
+                  </p>
+
+                  <p>
+                    The goal is simple: build software that is reliable,
+                    understandable and ready for real-world use.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="section contact" id="contact">
+            <div className="container">
+              <div className="contact-inner">
+                <div className="contact-label">08 / START A CONVERSATION</div>
+
+                <h2 className="contact-title">
+                  Have a system
+                  <br />
+                  to build?
+                </h2>
 
                 <a
-                  href="https://github.com/swangai7178"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="button button-secondary"
+                  href="mailto:swangai7178@gmail.com"
+                  className="contact-email"
                 >
-                  GITHUB ↗
+                  swangai7178@gmail.com
                 </a>
               </div>
             </div>
           </section>
-        </div>
+        </main>
 
-        {/* WORK */}
-
-        <section id="work" className="section">
+        <footer className="footer">
           <div className="container">
-            <div className="section-heading">
-              <div>
-                <div className="section-number">01 / SELECTED WORK</div>
+            <div className="footer-inner">
+              <span>
+                © {new Date().getFullYear()} Samuel Wangai. Built with
+                precision.
+              </span>
 
-                <h2>Systems I've built.</h2>
-              </div>
-
-              <p className="section-intro">
-                Production software across logistics, commerce, e-commerce and
-                business operations.
-              </p>
-            </div>
-
-            <div className="projects">
-              {projects.map((project) => (
-                <article
-                  className={`project ${
-                    project.featured ? "featured" : ""
-                  }`}
-                  key={project.title}
+              <div className="footer-links">
+                <a
+                  href="https://github.com/swangai7178"
+                  target="_blank"
+                  rel="noreferrer"
                 >
-                  <div>
-                    <div className="project-top">
-                      <span>{project.number}</span>
-                      <span>{project.category}</span>
-                    </div>
+                  GitHub
+                </a>
 
-                    <h3>{project.title}</h3>
+                <a
+                  href="https://pub.dev/packages/context_curtain"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Pub.dev
+                </a>
 
-                    <p>{project.description}</p>
-                  </div>
-
-                  <div className="project-bottom">
-                    <div className="tags">
-                      {project.stack.map((technology) => (
-                        <span className="tag" key={technology}>
-                          {technology}
-                        </span>
-                      ))}
-                    </div>
-
-                    <span className="case-link">EXPLORE →</span>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* OPEN SOURCE */}
-
-        <section id="opensource" className="section">
-          <div className="container">
-            <div className="section-heading">
-              <div>
-                <div className="section-number">02 / OPEN SOURCE</div>
-
-                <h2>Built for developers.</h2>
-              </div>
-
-              <p className="section-intro">
-                Reusable Flutter libraries and developer-focused software
-                released for the wider community.
-              </p>
-            </div>
-
-            <div className="opensource-grid">
-              {openSource.map((project) => (
-                <article className="opensource-card" key={project.title}>
-                  <div>
-                    <div className="opensource-number">
-                      {project.number} / {project.category}
-                    </div>
-
-                    <h3>{project.title}</h3>
-
-                    <p>{project.description}</p>
-
-                    <div className="opensource-tech">
-                      {project.technologies.map((technology) => (
-                        <span key={technology}>{technology}</span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="opensource-actions">
-                    <a
-                      href={project.pub}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      PUB.DEV ↗
-                    </a>
-
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      GITHUB ↗
-                    </a>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* STACK */}
-
-        <section id="stack" className="section">
-          <div className="container">
-            <div className="section-heading">
-              <div>
-                <div className="section-number">03 / ENGINEERING</div>
-
-                <h2>How I build.</h2>
-              </div>
-
-              <p className="section-intro">
-                A broad engineering toolkit focused on reliable, maintainable
-                production systems.
-              </p>
-            </div>
-
-            <div className="stack-grid">
-              {stack.map((group) => (
-                <div className="stack-card" key={group.title}>
-                  <h3>{group.title}</h3>
-
-                  <ul>
-                    {group.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ARCHITECTURE */}
-
-        <section className="section">
-          <div className="container">
-            <div className="architecture">
-              <div className="architecture-copy">
-                <div className="section-number">04 / ARCHITECTURE</div>
-
-                <h2>From interface to infrastructure.</h2>
-
-                <p>
-                  I work across the layers of a system rather than treating
-                  mobile, backend and infrastructure as isolated disciplines.
-                </p>
-              </div>
-
-              <div className="architecture-flow">
-                <div className="architecture-node">
-                  <strong>01</strong>
-                  <strong>MOBILE</strong>
-                  <span>Flutter · iOS · Android</span>
-                </div>
-
-                <div className="architecture-node">
-                  <strong>02</strong>
-                  <strong>API</strong>
-                  <span>Rails · Laravel · Node · Rust</span>
-                </div>
-
-                <div className="architecture-node">
-                  <strong>03</strong>
-                  <strong>DATA</strong>
-                  <span>PostgreSQL · Firebase · Redis</span>
-                </div>
-
-                <div className="architecture-node">
-                  <strong>04</strong>
-                  <strong>SYSTEMS</strong>
-                  <span>Linux · Cloud · CI/CD</span>
-                </div>
+                <a
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn
+                </a>
               </div>
             </div>
           </div>
-        </section>
-
-        {/* SYSTEMS / HARDWARE */}
-
-        <section className="section systems-section">
-          <div className="container">
-            <div className="section-heading">
-              <div>
-                <div className="section-number">05 / SYSTEMS</div>
-
-                <h2>Beyond the application.</h2>
-              </div>
-
-              <p className="section-intro">
-                When the problem moves below the application layer, I follow
-                it.
-              </p>
-            </div>
-
-            <div className="systems-grid">
-              <article className="systems-card">
-                <div className="section-number">HARDWARE / LINUX</div>
-
-                <h3>Hardware integration.</h3>
-
-                <p>
-                  Experience investigating real hardware communication,
-                  Android devices, Linux environments and serial communication
-                  problems across the software and hardware boundary.
-                </p>
-
-                <div className="systems-tags">
-                  <span>RS485</span>
-                  <span>UART</span>
-                  <span>SPI</span>
-                  <span>Linux</span>
-                  <span>Android</span>
-                  <span>Embedded Systems</span>
-                </div>
-              </article>
-
-              <article className="systems-card">
-                <div className="section-number">SECURITY / PERFORMANCE</div>
-
-                <h3>Reliable by design.</h3>
-
-                <p>
-                  I care about authentication, authorization, API boundaries,
-                  database performance, background processing, messaging,
-                  caching and the operational details that keep production
-                  systems reliable.
-                </p>
-
-                <div className="systems-tags">
-                  <span>AUTH</span>
-                  <span>API SECURITY</span>
-                  <span>POSTGRESQL</span>
-                  <span>REDIS</span>
-                  <span>FIREBASE</span>
-                  <span>CI/CD</span>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        {/* ABOUT */}
-
-        <section id="about" className="section">
-          <div className="container">
-            <div className="about">
-              <div>
-                <div className="section-number">06 / ABOUT</div>
-
-                <h2>
-                  Engineering
-                  <br />
-                  with purpose.
-                </h2>
-              </div>
-
-              <div className="about-copy">
-                <p>
-                  I'm Samuel Wangai, a Full Stack Systems Engineer focused on
-                  building reliable software across mobile, backend and
-                  infrastructure.
-                </p>
-
-                <p>
-                  My work spans Flutter applications, backend APIs, databases,
-                  real-time systems, payments, location services, messaging,
-                  authentication and developer tooling.
-                </p>
-
-                <p>
-                  I enjoy working where product requirements meet difficult
-                  engineering problems — designing systems that are fast,
-                  maintainable and capable of operating in production.
-                </p>
-
-                <div className="principles">
-                  {principles.map(([number, text]) => (
-                    <div className="principle" key={number}>
-                      <span>{number}</span>
-                      {text}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CONTACT */}
-
-        <section className="contact">
-          <div className="container">
-            <p className="eyebrow">07 / CONTACT</p>
-
-            <h2>Let's build something that matters.</h2>
-
-            <p>
-              Have a product, platform or difficult engineering problem?
-              Let's talk.
-            </p>
-
-            <a
-              className="button button-primary"
-              href="mailto:swangai7178@gmail.com"
-            >
-              GET IN TOUCH
-            </a>
-          </div>
-        </section>
-
-        {/* FOOTER */}
-
-        <div className="container">
-          <footer className="footer">
-            <span>
-              © {new Date().getFullYear()} Samuel Wangai
-            </span>
-
-            <div className="footer-links">
-              <a
-                href="https://github.com/swangai7178"
-                target="_blank"
-                rel="noreferrer"
-              >
-                GitHub
-              </a>
-
-              <a
-                href="https://pub.dev/packages/context_curtain"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Pub.dev
-              </a>
-
-              <a href="mailto:swangai7178@gmail.com">
-                Email
-              </a>
-            </div>
-          </footer>
-        </div>
+        </footer>
       </div>
-    </main>
+    </>
   );
 }
